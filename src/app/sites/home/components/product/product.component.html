@@ -1,0 +1,5 @@
+<h3>{{product.name}}</h3>
+<img [src]=product.image [alt]="product.name">
+<h4>Cena: {{product.price}}</h4>
+<h5>Ilość: {{product.amount}}</h5>
+<p-button label="Dodaj do koszyka" (click)="addProductToCart()" [disabled]="!product.amount"></p-button>

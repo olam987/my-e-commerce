@@ -1,0 +1,9 @@
+<p-progressSpinner *ngIf="productState === ProductState.NOT_LOADED"></p-progressSpinner>
+
+<ng-container *ngIf="productState === ProductState.LOADED">
+  <ng-container *ngFor="let product of products">
+    <product
+      [product]="product"
+    ></product>
+  </ng-container>
+</ng-container>

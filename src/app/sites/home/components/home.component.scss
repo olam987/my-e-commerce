@@ -1,0 +1,11 @@
+:host {
+  display: flex;
+  margin: 25px 30px;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+//żeby narzucić własne style na elementy z biblioteki primeNg należy dodać przed danym selektorem :host ::ng-deep
+:host ::ng-deep .p-progress-spinner {
+  height: 500px
+}

@@ -1,0 +1,28 @@
+<p-table [value]="products" [tableStyle]="{'min-width': '60rem'}">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Nazwa Produktu</th>
+      <th>Widok</th>
+      <th>Cena</th>
+      <th>Kategoria</th>
+      <th>Ocena</th>
+      <th>Ilość</th>
+
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-product>
+    <tr>
+      <td>{{product.name}}</td>
+      <td><img [src]="product.image" [alt]="product.name" width="100" class="shadow-4" /></td>
+      <td>{{product.price}}</td>
+      <td>{{product.category}}</td>
+      <td><p-rating [ngModel]="product.rate" [readonly]="true" [cancel]="false"></p-rating></td>
+      <td>{{product.amount}}</td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="summary">
+    <div class="flex align-items-center justify-content-between">
+      W koszyku jest {{getAmount()}} {{getAmountName()}}.
+    </div>
+  </ng-template>
+</p-table>
