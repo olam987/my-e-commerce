@@ -2,3 +2,21 @@
   display: block;
   margin: 20px;
 }
+
+button {
+  width: 10px;
+
+}
+
+:host ::ng-deep {
+  .buy_now {
+    position: absolute;
+    bottom: 5px;
+    right: 20px;
+  }
+
+  p-button.change-amount button {
+    width: 25px;
+    height: 25px;
+  }
+}

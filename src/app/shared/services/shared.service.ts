@@ -15,8 +15,8 @@ export class SharedService {
 
   getProductAmountInCart(): Observable<number> {
     return this.store$.select(selectStore)
-      .pipe(map(state => state.cart.addedToCart.reduce((total, product) => {
-        return total + product.amount
+      .pipe(map(state => state.cart.products.reduce((total, product) => {
+        return total + product.amount;
       }, 0)));
   }
 

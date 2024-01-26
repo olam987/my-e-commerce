@@ -23,6 +23,7 @@ import {ProgressSpinnerModule} from "primeng/progressspinner";
 import {ToastModule} from 'primeng/toast';
 import {MessageService} from "primeng/api";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { OrderComponent } from './sites/order/components/order.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     FooterComponent,
     NavigationComponent,
     ProductComponent,
-    CartComponent
+    CartComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,

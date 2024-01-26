@@ -18,9 +18,7 @@ export class HomeService {
   }
 
   addProductToCart(product: Product) {
-    const cloneProduct = {...product}
-    cloneProduct.amount--;
-    this.store$.dispatch(addProductToCart({product: cloneProduct}));
+    this.store$.dispatch(addProductToCart({product}));
   }
 
   getAllProducts(): Observable<Product[]> {

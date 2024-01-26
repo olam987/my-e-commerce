@@ -1,4 +1,4 @@
-<p-table [value]="products" [tableStyle]="{'min-width': '60rem'}">
+<p-table [value]="cartProducts" [tableStyle]="{'min-width': '60rem'}">
   <ng-template pTemplate="header">
     <tr>
       <th>Nazwa Produktu</th>
@@ -7,6 +7,7 @@
       <th>Kategoria</th>
       <th>Ocena</th>
       <th>Ilość</th>
+      <th>Usuń</th>
 
     </tr>
   </ng-template>
@@ -17,12 +18,18 @@
       <td>{{product.price}}</td>
       <td>{{product.category}}</td>
       <td><p-rating [ngModel]="product.rate" [readonly]="true" [cancel]="false"></p-rating></td>
-      <td>{{product.amount}}</td>
+      <td>
+        <p-button icon="pi pi-minus" class="change-amount" severity="info" [disabled]="disableMinusButton(product.id)" (click)="decreaseProductNumber(product)"></p-button>
+        {{product.amount}}
+        <p-button icon="pi pi-plus" class="change-amount" severity="info" [disabled]="disablePlusButton(product.id)"  (click)="increaseProductNumber(product)"></p-button>
+      </td>
+      <td><p-button icon="pi pi-trash" [rounded]="true" [text]="true" severity="danger" (click)="removeAllProduct(product)"></p-button></td>
     </tr>
   </ng-template>
   <ng-template pTemplate="summary">
     <div class="flex align-items-center justify-content-between">
-      W koszyku jest {{getAmount()}} {{getAmountName()}}.
+      W koszyku {{getAmountName()}}.
     </div>
+    <p-button [routerLink]="['/order']" class="buy_now" label="Kup teraz"></p-button>
   </ng-template>
 </p-table>

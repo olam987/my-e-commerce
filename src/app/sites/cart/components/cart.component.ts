@@ -10,38 +10,67 @@ import {Subscription} from "rxjs";
 })
 export class CartComponent implements OnInit, OnDestroy {
 
-  products: Product[] = [];
-  subscription!: Subscription;
+  cartProducts: Product[] = [];
+  subscription = new Subscription();
+  homeProducts: Product[] = [];
 
   constructor(private readonly cartService: CartService) {
   }
 
   ngOnInit(): void {
-    this.subscription = this.cartService.getCartProducts()
+    this.subscription.add(this.cartService.getCartProducts()
       .subscribe(values => {
-        this.products = values;
-      });
+         this.cartProducts = values;
+      }));
+    this.subscription.add(this.cartService.getAllProducts()
+      .subscribe(homeProducts => {
+        this.homeProducts = homeProducts;
+      })
+    )
   }
 
   getAmountName(): string {
     const amount = this.getAmount();
     if (amount === 1) {
-      return "produkt";
+      return "jest " + amount + " produkt";
     }
     const lastDigit = amount % 10;
     if (lastDigit === 2 || lastDigit === 3 || lastDigit === 4) {
-      return "produkty";
+      return "są " + amount + " produkty";
     }
-    return "produktów";
+    return "jest " + amount + " produktów";
   }
 
   getAmount() {
-    return this.products.reduce((total, product) => {
+    return this.cartProducts.reduce((total, product) => {
       return total + product.amount
     }, 0);
+  }
+
+  increaseProductNumber(product: Product) {
+    this.cartService.increaseProductNumber(product);
+  }
+
+  decreaseProductNumber(product: Product) {
+    this.cartService.decreaseProductNumber(product);
+  }
+
+  disablePlusButton(productId: number): boolean {
+    return !this.homeProducts.find(product => product.id === productId && product.amount > 0);
+  }
+
+  disableMinusButton(productId: number): boolean {
+    return !this.cartProducts.find(product => product.id === productId && product.amount > 0);
+  }
+
+  removeAllProduct(product: Product) {
+    this.cartService.removeAllProduct(product);
   }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
+
+
+
 }

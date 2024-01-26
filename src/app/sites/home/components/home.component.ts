@@ -22,10 +22,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.homeService.loadAllProducts();
+
     this.subscription.add(this.homeService.getAllProducts()
       .subscribe(values => {
         this.products = values;
+
       }));
     this.subscription.add(this.homeService.getAllProductsSate()
       .subscribe(value => {

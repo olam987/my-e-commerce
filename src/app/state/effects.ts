@@ -2,15 +2,15 @@ import {Injectable} from "@angular/core";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {
-  addProductToCart, addProductToCartError,
-  addProductToCartSuccessfully,
+  addProductToCart,
   loadProducts,
   loadProductsError,
-  loadProductsSuccessfully
+  loadProductsSuccessfully, removeAllProductFromCart,
+  removeProductFromCart
 } from "./actions";
-import {catchError, delay, map, of, switchMap} from "rxjs";
+import {catchError, delay, map, of, switchMap, tap} from "rxjs";
 import {Product} from "../shared/model/product";
-import { MessageService } from 'primeng/api';
+import {MessageService} from 'primeng/api';
 
 @Injectable()
 export class Effects {
@@ -20,7 +20,7 @@ export class Effects {
               private messageService: MessageService
   ) {}
 
-  loadAllProductsAction$ = createEffect(() => this.actions$.pipe(
+  loadAllProductsEffect$ = createEffect(() => this.actions$.pipe(
     ofType(loadProducts),
     delay(2000),
     switchMap(() => {
@@ -37,24 +37,17 @@ export class Effects {
     })
   ));
 
-  addProductToCartAction$ = createEffect(() => this.actions$.pipe(
+  addProductToCartEffect$ = createEffect(() => this.actions$.pipe(
     ofType(addProductToCart),
-    switchMap((action) => {
-      return this.http.put<Product>('http://localhost:3000/products/' + action.product.id, action.product)
-        .pipe(
-          map((response: Product) => {
-            this.messageService.add({ severity: 'success', summary: 'Sukces', detail: 'Dodano do koszyka' });
-            return addProductToCartSuccessfully({product: response})
-          }),
-          catchError((error: HttpErrorResponse) => {
-            this.messageService.add({ severity: 'error', summary: 'Błąd', detail: 'Nie dodano do koszyka' });
-            console.error('Add product to cart error: ', error)
-            return of(addProductToCartError());
-          })
-        )
+    tap(() => {
+      this.messageService.add({ severity: 'success', summary: 'Sukces', detail: 'Dodano produkt do koszyka' });
     })
-  ));
+  ), {dispatch: false});
 
-
-
+  removeProductFromCartEffect$ = createEffect(() => this.actions$.pipe(
+    ofType(removeProductFromCart, removeAllProductFromCart),
+    tap(() => {
+      this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Usunięto produkt z koszyka' });
+    })
+  ), {dispatch: false});
 }

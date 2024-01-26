@@ -14,7 +14,7 @@ interface Home {
 }
 
 interface Cart {
-  addedToCart: Product[];
+  products: Product[];
 }
 
 interface Order {

@@ -20,7 +20,7 @@
       "image": "https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/52/5237138/Sluchawki-nauszne-JBL-Tune-520BT-Czarny-skos.jpg",
       "manufacturingDate": "01-10-2021",
       "rate": 4,
-      "amount": 6
+      "amount": 0
     },
     {
       "id": 3,
@@ -31,7 +31,7 @@
       "image": "https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/12/1234607/1.JPG",
       "manufacturingDate": "02-10-2021",
       "rate": 4,
-      "amount": 8
+      "amount": 0
     },
     {
       "id": 4,
@@ -42,7 +42,7 @@
       "image": "https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/51/5148466/Telewizor-SAMSUNG-QE55S90C-skos-lewy.jpg",
       "manufacturingDate": "03-10-2021",
       "rate": 4,
-      "amount": 10
+      "amount": 5
     },
     {
       "id": 5,
@@ -163,7 +163,7 @@
       "image": "https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/19/1962139/Kuchnia-AMICA-6117GET3-33HZpTaAF-Xx-front-2.jpeg",
       "manufacturingDate": "14-10-2021",
       "rate": 4,
-      "amount": 10
+      "amount": 9
     },
     {
       "id": 15,
@@ -174,7 +174,7 @@
       "image": "https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/53/5369356/Kuchenka-mikrofalowa-HISENSE-H23MOBSD1HG-front.jpg",
       "manufacturingDate": "15-10-2021",
       "rate": 4,
-      "amount": 10
+      "amount": 8
     },
     {
       "id": 16,
@@ -196,7 +196,7 @@
       "image": "https://prod-api.mediaexpert.pl/api/images/gallery_500_500/thumbnails/images/24/2485414/Kuchenka-mikrofalowa-SAMSUNG-GE83X-P-front1.jpg",
       "manufacturingDate": "17-10-2021",
       "rate": 4,
-      "amount": 9
+      "amount": 8
     },
     {
       "id": 18,
@@ -339,7 +339,7 @@
       "image": "https://swingfashion.pl/userdata/public/gfx/7995/Czarne-spodnie-z-rozcieciem-z-przodu-Taylor-by-Swing.jpg",
       "manufacturingDate": "30-10-2021",
       "rate": 4,
-      "amount": 10
+      "amount": 9
     },
     {
       "id": 31,
@@ -372,7 +372,7 @@
       "image": "https://img.eobuwie.cloud/eob_product_1800w_1800h(0/5/8/8/0588582aac74bc51bc76cea16a3915a87f8c36d6_02_0196941372792_mf.jpg,webp)/sneakersy-new-balance-u574nbb-czarny-0000303253783.webp",
       "manufacturingDate": "03-09-2021",
       "rate": 4,
-      "amount": 10
+      "amount": 9
     },
     {
       "id": 34,
@@ -394,7 +394,7 @@
       "image": "https://img.eobuwie.cloud/eob_product_656w_656h(6/0/6/4/6064de162914f7be5b34db6ba539dac95cfc68e3_01_0000209206159_rz_.jpg,webp)/sneakersy-skechers-stand-on-air-73690-blsh-blush.webp",
       "manufacturingDate": "05-09-2021",
       "rate": 4,
-      "amount": 10
+      "amount": 9
     }
   ]
 }
